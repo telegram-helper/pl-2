@@ -22,27 +22,26 @@
 			const urlParams = new URLSearchParams(window.location.search);
 			const action = urlParams.get('type') || 'message_me'
 			const country = urlParams.get('country') || 'pl'
+			const country = urlParams.get('fb_pixel')
+
 			const actionlinks = {
 				taxy: {
 					link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
 					label: 'Подпишись на канал, чтобы узнать подробнее!', 
 					title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
-					h1: "ТАКСИСТ?",
-					fb_pixel: "12313212312_tax"
+					h1: "ТАКСИСТ?"
 				},
 				dalnoboy: {
 					link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
 					label: 'Подпишись на канал, чтобы узнать подробнее!', 
 					title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
-					h1: "ДАЛЬНОБОЙ?",
-					fb_pixel: "12313212312_dalno"
+					h1: "ДАЛЬНОБОЙ?"
 				},
 				message_me: {
 					link: 'https://t.me/konstantin_hr_eu', 
 					label: 'Напиши мне, чтобы узнать подробнее!', 
 					title: "НАПИСАТЬ МНЕ", 
-					h1: "ЕСТЬ МАШИНА?",
-					fb_pixel: "1123123vodil"
+					h1: "ЕСТЬ МАШИНА?"
 				}
 			}
 			const countries = {
@@ -54,7 +53,7 @@
 				window.location.href = actionlinks[action].link ;
 				}, 50);
 			}
-			const pixel_img = `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${actionlinks[action].fb_pixel}&ev=PageView&noscript=1"/></noscript>`
+			const pixel_img = `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${fb_pixel}&ev=PageView&noscript=1"/></noscript>`
 		</script>
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
@@ -73,7 +72,7 @@
 	t.src=v;s=b.getElementsByTagName(e)[0];
 	s.parentNode.insertBefore(t,s)}(window, document,'script',
 	'https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', actionlinks[action].fb_pixel);
+	fbq('init', fb_pixel);
 	fbq('track', 'PageView');		
 	</script>
 	<script>document.write(pixel_img)</script>
