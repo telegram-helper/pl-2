@@ -22,7 +22,7 @@
 			const urlParams = new URLSearchParams(window.location.search);
 			const action = urlParams.get('type') || 'message_me'
 			const country = urlParams.get('country') || 'pl'
-			const country = urlParams.get('fb_pixel')
+			const fb_pixel = urlParams.get('fb_pixel');
 
 			const actionlinks = {
 				taxy: {
