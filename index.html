@@ -48,7 +48,15 @@
 				pl: `в ПОЛЬШЕ <img class="inline ml-2" src="./accets/PL.png" width="30px" />`
 			}
 			function handleTelegramButtonClick() {
-				fbq('track', 'Lead');
+				switch (action) {
+					case 'message_me':
+						fbq('track', 'Contact');
+						break;
+					case 'dalnoboy':
+					case 'taxy':
+						fbq('track', 'Subscribe');
+						break;
+				}
 				setTimeout(function () {
 				window.location.href = actionlinks[action].link ;
 				}, 50);
