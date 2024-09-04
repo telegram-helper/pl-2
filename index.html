@@ -18,7 +18,44 @@
 	<meta property="og:title" content="РАБОТА: Водитель в ПОЛЬШЕ 🇵🇱 💵💵💵">
 	<meta property="og:description" content="Ищем водителя со своим авто. 📍 ПОЛЬША 🇵🇱">
 	<meta property="og:image" content="https://telegram-helper.github.io/pl-2/accets/ogimage.png">
-
+	<script>
+			const urlParams = new URLSearchParams(window.location.search);
+			const action = urlParams.get('type') || 'message_me'
+			const country = urlParams.get('country') || 'pl'
+			const actionlinks = {
+				taxy: {
+					link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
+					label: 'Подпишись на канал, чтобы узнать подробнее!', 
+					title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
+					h1: "ТАКСИСТ?",
+					fb_pixel: "12313212312_tax"
+				},
+				dalnoboy: {
+					link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
+					label: 'Подпишись на канал, чтобы узнать подробнее!', 
+					title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
+					h1: "ДАЛЬНОБОЙ?",
+					fb_pixel: "12313212312_dalno"
+				},
+				message_me: {
+					link: 'https://t.me/konstantin_hr_eu', 
+					label: 'Напиши мне, чтобы узнать подробнее!', 
+					title: "НАПИСАТЬ МНЕ", 
+					h1: "ЕСТЬ МАШИНА?",
+					fb_pixel: "1123123vodil"
+				}
+			}
+			const countries = {
+				pl: `в ПОЛЬШЕ <img class="inline ml-2" src="./accets/PL.png" width="30px" />`
+			}
+			function handleTelegramButtonClick() {
+				fbq('track', 'Lead');
+				setTimeout(function () {
+				window.location.href = actionlinks[action].link ;
+				}, 50);
+			}
+			const pixel_img = `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${actionlinks[action].fb_pixel}&ev=PageView&noscript=1"/></noscript>`
+		</script>
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta property="twitter:domain" content="telegram-helper.github.io">
@@ -36,49 +73,10 @@
 	t.src=v;s=b.getElementsByTagName(e)[0];
 	s.parentNode.insertBefore(t,s)}(window, document,'script',
 	'https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', '869964301685263');
+	fbq('init', actionlinks[action].fb_pixel);
 	fbq('track', 'PageView');		
 	</script>
-	<script>
-		const urlParams = new URLSearchParams(window.location.search);
-		const action = urlParams.get('type') || 'message_me'
-		const country = urlParams.get('country') || 'pl'
-		const actionlinks = {
-			taxy: {
-				link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
-				label: 'Подпишись на канал, чтобы узнать подробнее!', 
-				title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
-				h1: "ТАКСИСТ?"
-			},
-			dalnoboy: {
-				link: 'https://t.me/+s-hZtUvvJjRhNzUy', 
-				label: 'Подпишись на канал, чтобы узнать подробнее!', 
-				title: "ПОДПИСАТЬСЯ НА КАНАЛ", 
-				h1: "ДАЛЬНОБОЙ?"
-			},
-			message_me: {
-				link: 'https://t.me/konstantin_hr_eu', 
-				label: 'Напиши мне, чтобы узнать подробнее!', 
-				title: "НАПИСАТЬ МНЕ", 
-				h1: "ЕСТЬ МАШИНА?"
-			}
-		}
-		const countries = {
-			pl: `в ПОЛЬШЕ <img class="inline ml-2" src="./accets/PL.png" width="30px" />`
-		}
-		function handleTelegramButtonClick() {
-			fbq('track', 'Lead');
-			setTimeout(function () {
-			window.location.href = actionlinks[action].link ;
-			}, 50);
-		}
-	</script>
-
-	<noscript><img height="1" width="1" style="display:none"
-	src="https://www.facebook.com/tr?id=869964301685263&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Meta Pixel Code -->
-
+	<script>document.write(pixel_img)</script>
 </head>
 <body>
 	<div class="wrapper max-w-[430px] mx-auto px-2 xxs:px-3 py-5 relative">
